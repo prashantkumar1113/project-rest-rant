@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
 
 // 404 Page
 app.get("*", (req, res) => {
-    res.send(`<h1>404 Page</h1>`);
+    res.status(404).send(`<h1>404 Page</h1>`);
 });
 
 app.listen(process.env.PORT, () => {
