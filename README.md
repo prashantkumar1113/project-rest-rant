@@ -6,4 +6,4 @@ Routes that are defined:
 
 -   /
 -   /places
--   -
+-   \*
