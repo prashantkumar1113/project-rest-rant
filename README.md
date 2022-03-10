@@ -26,11 +26,12 @@
 
 ### Data
 
-| places object |
-| ------------- | ------ |
-| Variable      | Type   |
-| name          | string |
-| city          | string |
-| state         | string |
-| cuisines      | string |
-| pic           | string |
+-   places object
+
+| Variable | Type   |
+| -------- | ------ |
+| name     | string |
+| city     | string |
+| state    | string |
+| cuisines | string |
+| pic      | string |
