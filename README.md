@@ -24,9 +24,9 @@
 | DELETE | `/places/:id/rant/:rantId` | Delete a rant (comment) about a particular place |
 | GET    | `*`                        | 404 page (matches any route not defined above)   |
 
-### Data
+### Database
 
-places object
+places
 
 | Variable | Type   |
 | -------- | ------ |
