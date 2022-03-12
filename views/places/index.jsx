@@ -2,9 +2,9 @@ const React = require("react");
 const Def = require("../default");
 
 function index({places}) {
-    let placesFormated = places.map((place) => {
+    let placesFormated = places.map((place, index) => {
         return (
-            <div className="col-sm-3 card">
+            <div className="col-sm-3 card" id={index}>
                 <div className="card-header">
                     <h2>{place.name}</h2>
                 </div>
