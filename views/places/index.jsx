@@ -23,6 +23,9 @@ function index({places}) {
             <main>
                 <h1>Places Index Page</h1>
                 <row className="row">{placesFormated}</row>
+                <a href="/places/new">
+                    <button className="btn btn-primary">Add New</button>
+                </a>
             </main>
         </Def>
     );
