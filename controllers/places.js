@@ -1,28 +1,24 @@
 const router = require("express").Router();
-let places = [
-    {
-        name: "H-Thai-ML",
-        city: "Seattle",
-        state: "WA",
-        cuisines: "Thai, Pan-Asian",
-        pic: "/images/restaurants/dan-gold-E6HjQaB7UEA-unsplash.jpeg",
-    },
-    {
-        name: "Coding Cat Cafe",
-        city: "Phoenix",
-        state: "AZ",
-        cuisines: "Coffee, Bakery",
-        pic: "/images/restaurants/mgg-vitchakorn-vBOxsZrfiCw-unsplash.jpeg",
-    },
-];
+const places = require("../models/places");
 
 router.get("/", (req, res) => {
     // res.send("GET /places");
     res.render("places/index", {places});
 });
 router.post("/", (req, res) => {
-    console.log(req.body);
-    res.send("POST /places");
+    //console.log(req.body);
+    if (!req.body.pic) {
+        // Default image if one is not provided
+        req.body.pic = "http://placekitten.com/400/400";
+    }
+    if (!req.body.city) {
+        req.body.city = "Anytown";
+    }
+    if (!req.body.state) {
+        req.body.state = "USA";
+    }
+    places.push(req.body);
+    res.redirect("/places");
 });
 router.get("/new", (req, res) => {
     // res.send("Form page for creating a new place");
