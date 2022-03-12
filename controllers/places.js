@@ -21,7 +21,8 @@ router.get("/", (req, res) => {
     res.render("places/index", {places});
 });
 router.post("/", (req, res) => {
-    res.send("Create new place");
+    console.log(req.body);
+    res.send("POST /places");
 });
 router.get("/new", (req, res) => {
     // res.send("Form page for creating a new place");
