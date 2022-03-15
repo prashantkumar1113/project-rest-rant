@@ -33,7 +33,21 @@ router.get("/:id", (req, res) => {
     } else {
         res.render("places/show", {
             place: places[id],
+            id,
         });
+    }
+});
+
+// DELETE
+router.delete("/:id", (req, res) => {
+    let id = Number(req.params.id);
+    if (isNaN(id)) {
+        res.render("error404");
+    } else if (!places[id]) {
+        res.render("error404");
+    } else {
+        places.splice(id, 1);
+        res.redirect("/places");
     }
 });
 // router.post("/:id", (req, res) => {
@@ -41,9 +55,6 @@ router.get("/:id", (req, res) => {
 // });
 // router.get("/:id/edit", (req, res) => {
 //     res.send("Form page for editing an existing place, id = " + req.params.id);
-// });
-// router.delete("/:id", (req, res) => {
-//     res.send("Delete a particular place, id = " + req.params.id);
 // });
 // router.post("/:id/rant", (req, res) => {
 //     res.send(
