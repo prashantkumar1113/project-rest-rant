@@ -6,7 +6,9 @@ function index({places}) {
         return (
             <div className="col-sm-3 card" id={index}>
                 <div className="card-header">
-                    <h2>{place.name}</h2>
+                    <h2>
+                        <a href={`/places/${index}`}>{place.name}</a>
+                    </h2>
                 </div>
                 <div className="card-body">
                     <p className="text-center">{place.cuisines}</p>
