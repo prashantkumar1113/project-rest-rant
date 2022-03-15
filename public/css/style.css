@@ -9,11 +9,16 @@ main {
     background-color: white;
 }
 
-h1,
-h2 {
+h1 {
     text-align: center;
     color: cornflowerblue;
 }
+
+h2 {
+    color: coral;
+    text-align: center;
+}
+
 nav {
     background-color: cornflowerblue;
     padding: 10px;
