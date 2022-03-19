@@ -1,7 +1,7 @@
 const React = require("react");
 const Def = require("../default");
 
-function show({place, id}) {
+function show({place}) {
     return (
         <Def>
             <main>
@@ -22,7 +22,10 @@ function show({place, id}) {
                     <h2>Comments</h2>
                     <p>No comments yet</p>
                 </div>
-                <a href={`/places/${id}/edit`} className="btn btn-warning">
+                <a
+                    href={`/places/${place.id}/edit`}
+                    className="btn btn-warning"
+                >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -39,7 +42,10 @@ function show({place, id}) {
                     </svg>{" "}
                     Edit
                 </a>
-                <form method="POST" action={`/places/${id}?_method=DELETE`}>
+                <form
+                    method="POST"
+                    action={`/places/${place.id}?_method=DELETE`}
+                >
                     <button type="submit" className="btn btn-danger">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"

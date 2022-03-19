@@ -1,14 +1,14 @@
 const React = require("react");
 const Def = require("../default.jsx");
 
-function edit_form({place, id}) {
+function edit_form({place}) {
     return (
         <Def>
             <main>
                 <h1>Edit Place</h1>
-                <form method="POST" action={`/places/${id}?_method=PUT`}>
+                <form method="POST" action={`/places/${place.id}?_method=PUT`}>
                     <div className="row">
-                        <div className="form-group col-sm-6">
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
                             <label htmlFor="name">Place Name</label>
                             <input
                                 id="name"
@@ -18,7 +18,7 @@ function edit_form({place, id}) {
                                 required
                             />
                         </div>
-                        <div className="form-group col-sm-6">
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
                             <label htmlFor="pic">Place Picture</label>
                             <input
                                 id="pic"
@@ -27,9 +27,7 @@ function edit_form({place, id}) {
                                 defaultValue={place.pic}
                             />
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="form-group col-sm-6">
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
                             <label htmlFor="city">City</label>
                             <input
                                 id="city"
@@ -38,7 +36,7 @@ function edit_form({place, id}) {
                                 defaultValue={place.city}
                             />
                         </div>
-                        <div className="form-group col-sm-6">
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
                             <label htmlFor="state">State</label>
                             <input
                                 id="state"
@@ -47,9 +45,7 @@ function edit_form({place, id}) {
                                 defaultValue={place.state}
                             />
                         </div>
-                    </div>
-                    <div className="row">
-                        <div className="form-group col-sm-12">
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
                             <label htmlFor="cuisines">Cuisines</label>
                             <input
                                 id="cuisines"
@@ -58,7 +54,19 @@ function edit_form({place, id}) {
                                 defaultValue={place.cuisines}
                             />
                         </div>
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3 ">
+                            <div className="form-group">
+                                <label for="founded">Founded Year</label>
+                                <input
+                                    className="form-control"
+                                    id="founded"
+                                    name="founded"
+                                    defaultValue={place.founded}
+                                />
+                            </div>
+                        </div>
                     </div>
+
                     <button className="btn btn-lg btn-primary" type="submit">
                         Submit
                     </button>
