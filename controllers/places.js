@@ -28,6 +28,17 @@ router.get("/new", (req, res) => {
     res.render("places/new");
 });
 
+router.get("/:id", (req, res) => {
+    db.Place.findById(req.params.id)
+        .then((place) => {
+            res.render("places/show", {place});
+        })
+        .catch((err) => {
+            console.log(err);
+            res.render("error404");
+        });
+});
+
 module.exports = router;
 // const router = require("express").Router();
 // const places = require("../models/places");
