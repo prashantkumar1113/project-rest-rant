@@ -15,6 +15,7 @@ function edit_form({place, id}) {
                                 name="name"
                                 className="form-control"
                                 defaultValue={place.name}
+                                required
                             />
                         </div>
                         <div className="form-group col-sm-6">
