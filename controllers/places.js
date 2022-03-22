@@ -13,12 +13,17 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+    if (!req.body.pic) {
+        // Default image if one is not provided
+        req.body.pic = "http://placekitten.com/400/400";
+    }
+
     db.Place.create(req.body)
         .then(() => {
             res.redirect("/places");
         })
         .catch((err) => {
-            console.log(err);
+            console.log("err", err);
             res.render("error404");
         });
 });
@@ -48,6 +53,12 @@ router.get("/:id", (req, res) => {
             console.log(err);
             res.render("error404");
         });
+});
+
+router.delete("/:id", (req, res) => {
+    db.Place.findByIdAndDelete(req.params.id).then((deletedRestaurant) => {
+        res.status(303).redirect("/places");
+    });
 });
 
 module.exports = router;

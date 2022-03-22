@@ -7,16 +7,17 @@ function show({place}) {
             <main>
                 <h1>{place.name}</h1>
                 <img src={place.pic} width={"50%"}></img>
+                <h3>
+                    Located in {place.city}, {place.state}
+                </h3>
+                <div>
+                    <h2>Description</h2>
+                    <h3>{place.showEstablished()}</h3>
+                    <h4>Serving {place.cuisines}</h4>
+                </div>
                 <div>
                     <h2>Rating</h2>
                     <p>No ratings yet</p>
-                </div>
-                <div>
-                    <h2>Description</h2>
-                    <p>
-                        Located in {place.city}, {place.state} and serving{" "}
-                        {place.cuisines}
-                    </p>
                 </div>
                 <div>
                     <h2>Comments</h2>
