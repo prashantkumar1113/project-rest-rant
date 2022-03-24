@@ -2,6 +2,25 @@ const React = require("react");
 const Def = require("../default");
 
 function show({place}) {
+    let comments = <h3 className="inactive">No comments yet!</h3>;
+
+    if (place.comments.length > 0) {
+        comments = place.comments.map((comment) => {
+            return (
+                <div className="border">
+                    <h2 className="rant">
+                        {comment.rant ? "Rant! 😡" : "Rave! 😻"}
+                    </h2>
+                    <h4>{comment.content}</h4>
+                    <h3>
+                        <stong>- {comment.author}</stong>
+                    </h3>
+                    <h4>Rating: {comment.stars}</h4>
+                </div>
+            );
+        });
+    }
+
     return (
         <Def>
             <main>
@@ -15,13 +34,14 @@ function show({place}) {
                     <h3>{place.showEstablished()}</h3>
                     <h4>Serving {place.cuisines}</h4>
                 </div>
-                <div>
+                {/* <div>
                     <h2>Rating</h2>
                     <p>No ratings yet</p>
-                </div>
+                </div> */}
+                <hr />
                 <div>
                     <h2>Comments</h2>
-                    <p>No comments yet</p>
+                    <p>{comments}</p>
                 </div>
                 <a
                     href={`/places/${place.id}/edit`}
@@ -32,7 +52,7 @@ function show({place}) {
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-pencil-square"
+                        className="bi bi-pencil-square"
                         viewBox="0 0 16 16"
                     >
                         <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"></path>
@@ -53,7 +73,7 @@ function show({place}) {
                             width="16"
                             height="16"
                             fill="currentColor"
-                            class="bi bi-trash-fill"
+                            className="bi bi-trash-fill"
                             viewBox="0 0 16 16"
                         >
                             <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />

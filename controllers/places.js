@@ -42,6 +42,43 @@ router.get("/new", (req, res) => {
     res.render("places/new");
 });
 
+router.get("/:id/comment", (req, res) => {
+    db.Place.findById(req.params.id)
+        .then((place) => {
+            res.render("places/comment", {
+                restaurantId: place.id,
+                restaurantName: place.name,
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            res.render("error404");
+        });
+});
+
+router.post("/:id/comment", (req, res) => {
+    req.body.rant === "on" ? (req.body.rant = true) : (req.body.rant = false);
+    // console.log(req.body);
+    db.Place.findById(req.params.id)
+        .then((place) => {
+            db.Comment.create(req.body)
+                .then((comment) => {
+                    place.comments.push(comment.id);
+                    place.save().then(() => {
+                        res.redirect(`/places/${req.params.id}`);
+                    });
+                })
+                .catch((err) => {
+                    // console.log("INNER", err);
+                    res.render("error404");
+                });
+        })
+        .catch((err) => {
+            // console.log("OUTER");
+            res.render("error404");
+        });
+});
+
 router.get("/:id/edit", (req, res) => {
     db.Place.findById(req.params.id)
         .then((place) => {
@@ -55,7 +92,9 @@ router.get("/:id/edit", (req, res) => {
 
 router.get("/:id", (req, res) => {
     db.Place.findById(req.params.id)
+        .populate("comments")
         .then((place) => {
+            //console.log(place.comments);
             res.render("places/show", {place});
         })
         .catch((err) => {

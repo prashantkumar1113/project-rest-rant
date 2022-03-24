@@ -33,5 +33,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
-    console.log("Server is live on PORT=" + process.env.PORT);
+    console.log("Server is live on http://localhost:" + process.env.PORT);
 });
