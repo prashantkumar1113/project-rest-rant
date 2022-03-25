@@ -81,6 +81,46 @@ function show({place}) {
                         Delete
                     </button>
                 </form>
+                <form method="POST" action={`/places/${place.id}/comment`}>
+                    <div className="row">
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
+                            <label htmlFor="author">Author</label>
+                            <input
+                                id="author"
+                                name="author"
+                                className="form-control"
+                            />
+                        </div>
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
+                            <label htmlFor="rant">Rant</label>
+                            <input type="checkbox" id="rant" name="rant" />
+                        </div>
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
+                            <label htmlFor="stars">Stars</label>
+                            <input
+                                type="number"
+                                id="stars"
+                                name="stars"
+                                className="form-control"
+                                min="1"
+                                max="5"
+                                step="0.5"
+                            />
+                        </div>
+                        <div className="form-group col-sm-6 col-md-4 col-lg-3">
+                            <label htmlFor="content">Content</label>
+                            <input
+                                id="content"
+                                name="content"
+                                className="form-control"
+                            />
+                        </div>
+                    </div>
+
+                    <button className="btn btn-lg btn-primary" type="submit">
+                        Submit
+                    </button>
+                </form>
             </main>
         </Def>
     );
