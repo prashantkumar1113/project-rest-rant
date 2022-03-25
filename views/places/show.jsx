@@ -109,11 +109,16 @@ function show({place}) {
                         </div>
                         <div className="form-group col-sm-6 col-md-4 col-lg-3">
                             <label htmlFor="content">Content</label>
-                            <input
+                            {/* <input
                                 id="content"
                                 name="content"
                                 className="form-control"
-                            />
+                            /> */}
+                            <textarea
+                                id="content"
+                                name="content"
+                                className="form-control"
+                            ></textarea>
                         </div>
                     </div>
 
