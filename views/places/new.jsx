@@ -7,6 +7,7 @@ function new_form(data) {
     if (data.message) {
         message = <div className="alert alert-danger">{data.message}</div>;
     }
+    console.log(data.formData);
     return (
         <Def>
             <main>
@@ -117,7 +118,7 @@ function new_form(data) {
                         </div>
                         <div className="col-sm-6 col-md-4 col-lg-3 form-group">
                             <div className="form-group">
-                                <label for="founded">Founded Year</label>
+                                <label htmlFor="founded">Founded Year</label>
                                 {data.formData.founded ? (
                                     <input
                                         type="number"

@@ -39,7 +39,7 @@ router.post("/", (req, res) => {
 
 router.get("/new", (req, res) => {
     // res.send("Form page for creating a new place");
-    res.render("places/new");
+    res.render("places/new", {formData: {}});
 });
 
 router.get("/:id/comment", (req, res) => {
