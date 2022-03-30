@@ -103,10 +103,27 @@ router.get("/:id", (req, res) => {
         });
 });
 
+router.put("/:id", (req, res) => {
+    db.Place.findByIdAndUpdate(req.params.id, req.body, {new: true})
+        .then((updatedPlace) => {
+            console.log(updatedPlace);
+            res.redirect(`/places/${req.params.id}`);
+        })
+        .catch((err) => {
+            console.log("error", err);
+            res.render("error404");
+        });
+});
+
 router.delete("/:id", (req, res) => {
-    db.Place.findByIdAndDelete(req.params.id).then((deletedRestaurant) => {
-        res.status(303).redirect("/places");
-    });
+    db.Place.findByIdAndDelete(req.params.id)
+        .then((deletedRestaurant) => {
+            res.status(303).redirect("/places");
+        })
+        .catch((err) => {
+            console.log("error", err);
+            res.render("error404");
+        });
 });
 
 module.exports = router;
