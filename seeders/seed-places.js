@@ -1,6 +1,4 @@
-const db = require("../models");
-
-db.Place.create([
+module.exports = [
     {
         name: "H-Thai-ML",
         city: "Seattle",
@@ -17,12 +15,4 @@ db.Place.create([
         pic: "/images/restaurants/dan-gold-E6HjQaB7UEA-unsplash.jpeg",
         founded: 2020,
     },
-])
-    .then(() => {
-        console.log("Success!");
-        process.exit();
-    })
-    .catch((err) => {
-        console.log("Failure!", err);
-        process.exit();
-    });
+];

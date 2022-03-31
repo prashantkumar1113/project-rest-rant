@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const db = require("../models");
+const placesSeedData = require("../seeders/seed-places");
+const commentsSeedData = require("../seeders/seed_comments");
 
 router.get("/", (req, res) => {
     db.Place.find()
@@ -35,6 +37,22 @@ router.post("/", (req, res) => {
                 res.render("error404");
             }
         });
+});
+
+router.get("/seed/data", (req, res) => {
+    db.Place.insertMany(placesSeedData)
+        .then(() => {
+            res.redirect("/places");
+        })
+        .catch((err) => {
+            console.log(err);
+            res.render("error404");
+        });
+});
+
+router.get("/seed/comments", (req, res) => {
+    commentsSeedData();
+    res.redirect("/places");
 });
 
 router.get("/new", (req, res) => {

@@ -20,7 +20,7 @@ async function seed() {
     await place.save();
 
     // Exit the program
-    process.exit();
+    // process.exit();
 }
 
-seed();
+module.exports = seed;

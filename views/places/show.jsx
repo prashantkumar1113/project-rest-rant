@@ -83,7 +83,7 @@ function show({place}) {
                             method="POST"
                             action={`/places/${place.id}/comment`}
                         >
-                            <div class="mb-3 row">
+                            <div className="mb-3 row">
                                 <label
                                     htmlFor="author"
                                     className="col-sm-2 col-form-label"
@@ -99,14 +99,14 @@ function show({place}) {
                                     />
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            <div className="mb-3 row">
                                 <label
                                     htmlFor="rant"
                                     className="col-sm-2 col-form-label"
                                 >
                                     Rant
                                 </label>
-                                <div class="col-sm-10">
+                                <div className="col-sm-10">
                                     <div className="form-check form-switch">
                                         <input
                                             className="form-check-input"
@@ -118,7 +118,7 @@ function show({place}) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            <div className="mb-3 row">
                                 <label
                                     htmlFor="stars"
                                     className="col-sm-2 col-form-label"
@@ -137,7 +137,7 @@ function show({place}) {
                                     />
                                 </div>
                             </div>
-                            <div class="mb-3 row">
+                            <div className="mb-3 row">
                                 <label
                                     htmlFor="content"
                                     className="col-sm-2 col-form-label"
